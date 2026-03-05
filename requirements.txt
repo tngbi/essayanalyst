@@ -23,3 +23,5 @@ nltk>=3.8.1
 language-tool-python>=2.7.1
 textblob>=0.18.0
 numpy>=1.26.0,<3.0.0
+fpdf2>=2.7.0
+
