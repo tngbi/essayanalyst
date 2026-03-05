@@ -24,7 +24,16 @@ def _get_nlp():
         try:
             import spacy
 
-            _nlp = spacy.load("en_core_web_sm")
+            try:
+                _nlp = spacy.load("en_core_web_sm")
+            except OSError:
+                import subprocess, sys
+                subprocess.check_call(
+                    [sys.executable, "-m", "spacy", "download", "en_core_web_sm"],
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                )
+                _nlp = spacy.load("en_core_web_sm")
         except Exception:
             _nlp = None
     return _nlp
