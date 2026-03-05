@@ -22,7 +22,7 @@ def build_or_load_index() -> "FAISS":
             from langchain_openai import OpenAIEmbeddings
 
     from langchain_community.document_loaders import PyPDFLoader, TextLoader
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
 
     # propagate whichever API key is set so downstream libraries see it
     from analyst.utils import ensure_api_key
